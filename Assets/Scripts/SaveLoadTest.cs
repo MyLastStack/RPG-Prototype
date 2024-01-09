@@ -30,7 +30,7 @@ public class SaveLoadTest : MonoBehaviour
 
     public void SaveData()
     {
-        Stream stream = File.Open("PlayerData", FileMode.Create);
+        Stream stream = File.Open("PlayerData.xml", FileMode.Create);
         XmlSerializer serializer = new XmlSerializer(typeof(NameData));
         serializer.Serialize(stream, myName);
         stream.Close();
@@ -38,7 +38,7 @@ public class SaveLoadTest : MonoBehaviour
 
     public void LoadData()
     {
-        Stream stream = File.Open("PlayerData", FileMode.Open);
+        Stream stream = File.Open("PlayerData.xml", FileMode.Open);
         XmlSerializer serializer = new XmlSerializer(typeof(NameData));
         myName = (NameData)serializer.Deserialize(stream);
         stream.Close();
