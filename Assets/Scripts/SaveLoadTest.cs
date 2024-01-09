@@ -6,6 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using TMPro;
+using UnityEngine.UI;
 
 public class SaveLoadTest : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class SaveLoadTest : MonoBehaviour
 
     [SerializeField]
     TMP_InputField myInputField;
-    
+    [SerializeField]
+    Slider mySlider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,8 @@ public class SaveLoadTest : MonoBehaviour
 
     public void SaveData()
     {
+        myName.playerValue = mySlider.value;
+
         Stream stream = File.Open("PlayerData.xml", FileMode.Create);
         XmlSerializer serializer = new XmlSerializer(typeof(NameData));
         serializer.Serialize(stream, myName);
@@ -44,6 +49,7 @@ public class SaveLoadTest : MonoBehaviour
         stream.Close();
 
         myInputField.text = myName.playerName;
+        mySlider.value = myName.playerValue;
     }
 }
 
@@ -51,4 +57,5 @@ public class SaveLoadTest : MonoBehaviour
 public struct NameData
 {
     public string playerName;
+    public float playerValue;
 }
