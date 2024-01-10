@@ -1312,7 +1312,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2094910295}
         m_TargetAssemblyTypeName: SaveLoadTest, Assembly-CSharp
-        m_MethodName: LoadData
+        m_MethodName: LoadProfile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2000,7 +2000,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2094910295}
         m_TargetAssemblyTypeName: SaveLoadTest, Assembly-CSharp
-        m_MethodName: SaveData
+        m_MethodName: SaveProfile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
