@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.IO;
 using TMPro;
+using UnityEngine.UI;
 
 public class SaveLoadTest : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SaveLoadTest : MonoBehaviour
 
     [SerializeField]
     TMP_InputField myInputField;
+    [SerializeField]
+    Slider mySliderField;
 
     string filePath = "SaveData\\Profile1";
     
@@ -31,6 +34,7 @@ public class SaveLoadTest : MonoBehaviour
         SaveManager.LoadData(filePath + "\\PlayerData", ref  myName);
 
         myInputField.text = myName.playerName;
+        mySliderField.value = myName.playerValue;
     }
 
     public void SaveProfile()
@@ -61,4 +65,5 @@ public class SaveLoadTest : MonoBehaviour
 public struct NameData
 {
     public string playerName;
+    public float playerValue;
 }
